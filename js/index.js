@@ -28,7 +28,7 @@ const siteContent = {
   },
   "contact": {
     "contact-h4" : "Contact",
-    "address" : "123 Way 456 Street Somewhere, USA",
+    "address" : `123 Way 456 Street <br> Somewhere, USA`,
     "phone" : "1 (888) 888-8888",
     "email" : "sales@greatidea.io",
   },
@@ -43,15 +43,30 @@ logo.setAttribute('src', siteContent["nav"]["img-src"])
 
 
 
-let nc = document.querySelectorAll('a');
+let nc = document.querySelectorAll('nav a');
 nc[0].textContent = 'Services';
 nc[1].textContent = 'Product';
 nc[2].textContent = 'Vision';
 nc[3].textContent = 'Features';
 nc[4].textContent = 'About';
 nc[5].textContent = 'Contact';
-Array.from(nc).map(a => a.style.color = "green")
 
+let invest = document.createElement('a');
+invest.href="#"
+invest.style = "color: green"
+invest.textContent = "Investors"
+const pE = document.querySelector('nav');
+pE.append(invest);
+
+let career = document.createElement('a');
+career.href="#"
+career.style = "color: green"
+career.textContent = "Careers"
+const pECareer = document.querySelector('nav');
+pECareer.append(career);
+
+
+Array.from(nc).map(a => a.style.color = "green")
 // for (i = 0; i < nc.length; i++) {
 //   nc[i].style.color= "green";
 // }
@@ -101,6 +116,10 @@ mainB[2].textContent = siteContent['main-content']['vision-content']
 let contactH4 = document.querySelector('.contact h4')
 contactH4.textContent = siteContent.contact ['contact-h4']
 
-let contactP = document.querySelector('.contact p')
-contactP.textContent = siteContent.contact ['address']
+let contactP = document.querySelectorAll('.contact p')
+contactP[0].innerHTML = siteContent.contact ['address']
+contactP[1].textContent = siteContent.contact ['phone']
+contactP[2].textContent = siteContent.contact ['email']
 
+let foot = document.querySelector('footer p')
+foot.textContent = siteContent.footer['copyright']
